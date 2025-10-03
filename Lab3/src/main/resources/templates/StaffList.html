@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <div th:each="staff, st : ${list}">
+    <img alt="" th:src="@{|/photos/${staff.photo}|}" style="height: 40px">
+    <!-- @{|/path/co-the-co-text-co-dinh-va-bien/${bien1}/them-text/${bien2}|}-->
+    <b th:text="@{|${st.count}.|}"></b>
+    <b th:text="${#strings.capitalizeWords(staff.name)}"></b>
+    $<b th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2, 'POINT')}"></b>
+    <th:block th:if="${!st.last}"><hr></th:block>
+  </div>
+</body>
+</html>

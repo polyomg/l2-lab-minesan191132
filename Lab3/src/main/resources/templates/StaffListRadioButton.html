@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <h3>Fill to SelectBox</h3>
+<select name="cbo">
+<th:block th:each="staff : ${list}">
+  <option th:value="${staff.id}" th:text="${staff.name}"></option>
+</th:block>
+</select>
+<h3>Create Radio Button Group</h3>
+<th:block th:each="staff : ${list}">
+    <label>
+        <input type="radio" name="rdo" th:value="${staff.id}">
+        <th:block th:text="${staff.name}"></th:block>
+    </label>
+    <br>
+</th:block>
+<label>
+    <input type="radio" name="rdo" value="user1@gmail.com">
+    Nguyen Van user1
+</label>
+<br>
+   <label>
+       <input type="radio" name="rdo" value="user2@gmail.com">
+       Nguyen Van user2
+   </label>
+   <br>
+   <label>
+       <input type="radio" name="rdo" value="user3@gmail.com">
+       Nguyen Van user3
+   </label>
+   <br>
+   <label>
+       <input type="radio" name="rdo" value="user4@gmail.com">
+       Nguyen Van user4
+   </label>
+   <br>
+   <label>
+       <input type="radio" name="rdo" value="user5@gmail.com">
+       Nguyen Van user5
+   </label>
+   <br>
+   <label>
+       <input type="radio" name="rdo" value="user6@gmail.com">
+       Nguyen Van user6
+   </label>
+   <br>
+</body>
+</html>

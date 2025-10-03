@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<img th:src="@{|/photos/${staff.photo}|}">
+	<hr>
+	Email:
+	<b th:text="${staff.id}"></b>
+	<hr>
+	Họ và tên:
+	<!-- #strings.capitalizeWords la một cú pháp tiện ích trong thymeleaf capitalizeWords là để ghi hoa chữ cái đầu tiên-->
+	<b th:text="${#strings.capitalizeWords(staff.name)}"></b>
+	<hr>
+	Giới tính:
+	<b th:text="${staff.gender} ? 'Nam' : 'Nu'"></b>
+	<hr>
+	Ngày sinh:
+	<!-- #dates.format(dateObject, pattern) là một tiện ích giúp định dạng ngày tháng thành một chuỗi (String) theo mẫu (pattern) mà mình đã chỉ định ('dd-MM-yyyy') -->
+	<b th:text="${#dates.format(staff.birthday, 'dd-MM-yyyy')}"></b>
+	<hr>
+
+	<th:block th:switch="${staff.level}">
+		<b th:case="0">Úy</b>
+		<b th:case="1">Tá</b>
+		<b th:case="2">Tướng</b>
+		<b th:case="3">Chưa có</b>
+	</th:block>
+	<hr>
+	Salary: $
+	<!-- #numbers.formatDecimal(Số lương hiển thị, số lượng tối thiểu cho phần nguyên số, phân cách, số thập phân, phân cách phần nguyên với thập phân)-->
+	<b
+		th:text="${#numbers.formatDecimal(staff.salary, 0, 'COMMA', 2,'POINT')}"></b><hr>
+</body>
+</html>
