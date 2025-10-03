@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Tinh Chu Vi Hinh Chu Nhat</h1>
+<form th:action="@{/casio}" method="post">
+  <label>
+  Chieu Dai:
+  <input type="number" name ="a" required>
+  </label>
+  <label>
+  Chieu Rong:
+  <input type="number" name ="b" required>
+  </label>
+  <button type="submit" name="pheptoan" value="Chuvi">Tinh Chu Vi</button>
+</form>
+<br>
+<form th:action="@{/casio}" method="post">
+  <label>
+  Chieu Dai:
+  <input type="number" name ="a" required>
+  </label>
+  <label>
+  Chieu Rong:
+  <input type="number" name ="b" required>
+  </label>
+  <button type="submit" name="pheptoan" value="Dientich">Tinh Dien Tich</button>
+</form>
+
+<div>
+<h2>ket qua: <span th:text=${ketqua}></span></h2>
+</div>
+</body>
+</html>
